@@ -1,4 +1,3 @@
-.idea/
 *
 !*/
 !**.java
@@ -54,6 +53,7 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 
+code-examples/
 
 *.pyc
 .DS_Store
