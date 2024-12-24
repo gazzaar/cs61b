@@ -182,9 +182,9 @@ public class Model extends Observable {
         // ROW
         for (int row = 0; row< b.size();row++){
             for (int col = 0; col < b.size() -1 ;col++){
-                int  currentvalue = b.tile(col,row).value();
+                int  currentValue = b.tile(col,row).value();
                 int nextValue  = b.tile(col+1 , row).value();
-                if(currentvalue == nextValue){
+                if(currentValue == nextValue){
                    empty = true;
                 }
             }
@@ -193,9 +193,9 @@ public class Model extends Observable {
         // Column
         for (int col = 0; col < b.size();col++){
             for (int row = 0; row < b.size() -1 ;row++){
-                int currentvalue = b.tile(col,row).value();
+                int currentValue = b.tile(col,row).value();
                 int nextValue  = b.tile(col , row +1 ).value();
-                if(currentvalue == nextValue){
+                if(currentValue == nextValue){
                     empty = true;
                 }
             }
