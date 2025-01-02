@@ -110,7 +110,6 @@ public class Model extends Observable {
         boolean changed;
         changed = false;
 
-        // TODO: Modify this.board (and perhaps this.score) to account
         // for the tilt to the Side SIDE. If the board changed, set the
         // changed local variable to true.
         board.setViewingPerspective(side);
@@ -163,7 +162,6 @@ public class Model extends Observable {
      *  Empty spaces are stored as null.
      * */
     public static boolean emptySpaceExists(Board b) {
-        // TODO: Fill in this function.
         for (int i = 0; i< b.size();i++){
             for (int x = 0; x < b.size();x++){
                 if (b.tile(i,x) == null){
@@ -180,7 +178,6 @@ public class Model extends Observable {
      * given a Tile object t, we get its value with t.value().
      */
     public static boolean maxTileExists(Board b) {
-        // TODO: Fill in this function.
         for (int i = 0; i< b.size();i++){
             for (int x = 0; x < b.size();x++){
                 if(b.tile(i,x) != null && b.tile(i,x).value() == MAX_PIECE){
@@ -198,7 +195,6 @@ public class Model extends Observable {
      * 2. There are two adjacent tiles with the same value.
      */
     public static boolean atLeastOneMoveExists(Board b) {
-        // TODO: Fill in this function. (DONE)
         boolean empty = false;
         // First case: at least one empty
         if (emptySpaceExists(b)){
