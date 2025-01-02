@@ -113,7 +113,31 @@ public class Model extends Observable {
         // TODO: Modify this.board (and perhaps this.score) to account
         // for the tilt to the Side SIDE. If the board changed, set the
         // changed local variable to true.
+        // NORTH
+        boolean[][] processed = new boolean[board.size()][board.size()];
+        for(int c =0; c < board.size(); c++){
+            for(int r = board.size() -1; r >=0 ; r--){
+                Tile t = board.tile(c,r);
+               if(t != null && !processed[c][r]){
+                   int targetRow = r;
 
+                   while(targetRow < board.size() -1 && board.tile(c,targetRow +1 ) == null){
+                       targetRow++;
+                   }
+
+                   if(targetRow < board.size() - 1 && board.tile(c, targetRow + 1).value() == t.value() && !processed[c][targetRow +1]){
+                      board.move(c,targetRow +1,t);
+                       score += t.value() * 2;
+                       processed[c][targetRow +1] = true;
+                      changed= true;
+                   }
+                   else if(targetRow != r){
+                       board.move(c,targetRow,t);
+                       changed = true;
+                   }
+               }
+            }
+        }
         checkGameOver();
         if (changed) {
             setChanged();
