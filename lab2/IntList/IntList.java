@@ -1,4 +1,4 @@
-// package IntList;
+ package IntList;
 
 public class IntList {
     public int first;
