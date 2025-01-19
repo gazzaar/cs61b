@@ -54,6 +54,7 @@ $RECYCLE.BIN/
 *.lnk
 
 code-examples/
+videos/
 
 *.pyc
 .DS_Store
