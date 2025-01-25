@@ -45,8 +45,7 @@ public  class LinkedListDeque<T>{
     }
 
     public int size(){
-        // TODO: implement size
-        return 0;
+        return size;
     }
 
     public void printDeque(){
