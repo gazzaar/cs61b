@@ -37,7 +37,9 @@ public  class LinkedListDeque<T>{
     }
 
     public void addLast(T item){
-        // TODO: implement add last
+        sentinel.prev= new Node(item,sentinel,sentinel.prev);
+        sentinel.prev.prev.next = sentinel.prev;
+        size++;
     }
 
     public boolean isEmpty(){
