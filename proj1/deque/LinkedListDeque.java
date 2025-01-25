@@ -1,23 +1,34 @@
 package deque;
 public  class LinkedListDeque<T>{
-    public class IntNode{
+    public class Node {
        public T item;
-       public IntNode next;
+       public Node next;
+       public Node prev;
 
-       public IntNode(T i, IntNode rest){
+       public Node(T i, Node n, Node p){
             item = i;
-            next = rest;
+            next = n;
+            prev = p;
        }
     }
-    private IntNode  sentinel;
+    private Node sentinel;
     private int size;
     public LinkedListDeque(){
-        sentinel = new IntNode(null,null);
+        sentinel = new Node(null,null,null);
+        sentinel.next = sentinel;
+        sentinel.prev = sentinel;
         size = 0;
     }
 
-    public void addFirst(T item){
-        // TODO: implement add first
+    public LinkedListDeque(T x){
+        sentinel = new Node(null,null,null);
+        sentinel.next = sentinel;
+        sentinel.prev = sentinel;
+       Node newNode = new Node(x,sentinel,sentinel);
+        sentinel.next = newNode;
+        sentinel.prev = newNode;
+        size = 1;
+    }
 
     }
 
