@@ -113,4 +113,25 @@ public  class LinkedListDeque<T>{
         return null;
     }
 
+
+    public T getRecursive(int index){
+
+        if (sentinel.next == sentinel || index < 0 || index >= size) {
+            return null;
+        }
+
+        return getRecursive(sentinel.next,0,index);
+    }
+    private T getRecursive(Node n, int currentIndex,int targetIndex){
+        if(n == sentinel){
+            return null;
+        }
+
+        if(currentIndex == targetIndex){
+            return n.item;
+        }
+        return getRecursive(n.next,currentIndex += 1 , targetIndex);
+
+    }
+
 }
