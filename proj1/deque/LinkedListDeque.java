@@ -96,9 +96,21 @@ public  class LinkedListDeque<T>{
          }
     }
 
-    public T get(int index){
-        // TODO: implement get item on index
+    public T get(int index) {
+        if (sentinel.next == sentinel || index < 0 || index >= size) {
             return null;
+        }
+
+        Node n = sentinel.next;
+
+        for (int i = 0; i < size; i++) {
+            if (i == index) {
+                return n.item;
+            }
+            n = n.next;
+        }
+
+        return null;
     }
 
 }
