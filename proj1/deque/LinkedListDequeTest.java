@@ -120,4 +120,51 @@ public class LinkedListDequeTest {
         }
 
     }
+
+    @Test
+    public void testGetEmptyDeque() {
+        LinkedListDeque<String> deque = new LinkedListDeque<>();
+        assertNull(deque.get(0)); // Test Case 1
+        assertNull(deque.getRecursive(0)); // Test Case 1
+    }
+
+    @Test
+    public void testGetSingleNodeDeque() {
+        LinkedListDeque<String> deque = new LinkedListDeque<>("A");
+        assertEquals("A", deque.get(0)); // Test Case 2
+        assertEquals("A", deque.getRecursive(0)); // Test Case 2
+        assertNull(deque.get(1)); // Test Case 3
+        assertNull(deque.getRecursive(1)); // Test Case 3
+    }
+
+    @Test
+    public void testGetMultipleNodeDeque() {
+        LinkedListDeque<String> deque = new LinkedListDeque<>();
+        deque.addLast("A");
+        deque.addLast("B");
+        deque.addLast("C");
+        assertEquals("B", deque.get(1)); // Test Case 4
+        assertEquals("A", deque.get(0)); // Test Case 5
+        assertEquals("C", deque.get(2)); // Test Case 6
+        assertNull(deque.get(3)); // Test Case 7
+    }
+
+    @Test
+    public void testGetInvalidIndex() {
+        LinkedListDeque<String> deque = new LinkedListDeque<>("A");
+        assertNull(deque.get(-1)); // Test Case 8
+        assertNull(deque.get(100)); // Test Case 9
+    }
+
+    @Test
+    public void testGetMiddleItem() {
+        LinkedListDeque<String> deque = new LinkedListDeque<>();
+        deque.addLast("A");
+        deque.addLast("B");
+        deque.addLast("C");
+        deque.addLast("D");
+        deque.addLast("E");
+        assertEquals("C", deque.get(2)); // Test Case 10
+    }
 }
+
