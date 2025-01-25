@@ -55,7 +55,12 @@ public  class LinkedListDeque<T>{
     }
 
     public void printDeque(){
-        // TODO: implement print deque
+        Node n = sentinel.next;
+        for (int i = 0; i < size; i++){
+            System.out.print(n.item + " ");
+            n = n.next;
+        }
+        System.out.println();
 
     }
 
