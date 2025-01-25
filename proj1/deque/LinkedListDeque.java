@@ -41,8 +41,19 @@ public  class LinkedListDeque<T>{
     }
 
     public T removeFirst(){
-        // TODO: implement remove first item
+        if(sentinel.next == sentinel){
             return null;
+        } else{
+            T item = sentinel.next.item;
+            sentinel.next = sentinel.next.next;
+            if(sentinel.next == sentinel){
+                sentinel.prev = sentinel;
+            } else{
+                sentinel.next.prev = sentinel;
+            }
+            size--;
+            return item;
+        }
     }
 
     public T removeLast(){
