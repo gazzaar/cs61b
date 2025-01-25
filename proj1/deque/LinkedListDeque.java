@@ -37,8 +37,11 @@ public  class LinkedListDeque<T>{
     }
 
     public boolean isEmpty(){
-        // TODO: implement is empty
-        return true;
+        boolean empty = false;
+        if(sentinel.next == sentinel){
+           empty = true; 
+        }
+        return empty;
     }
 
     public int size(){
