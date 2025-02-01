@@ -88,6 +88,9 @@ public class ArrayDeque<Item> {
   }
 
   public Item get(int index) {
-    return null;
+    if (index < 0 || index >= size) {
+      return null;
+    }
+    return items[(nextAddFirst + 1 + index) % items.length];
   }
 }
