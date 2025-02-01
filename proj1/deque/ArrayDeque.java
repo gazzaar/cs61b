@@ -60,6 +60,10 @@ public class ArrayDeque<Item> {
   }
 
   public void printDeque(){
+    for(int i = 0;i < items.length; i++){
+      System.out.print(get(i) + " ");
+    }
+    System.out.println();
   }
 
   public Item removeFirst(){
