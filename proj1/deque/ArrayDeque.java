@@ -68,28 +68,38 @@ public class ArrayDeque<Item> {
   }
 
   public Item removeFirst(){
-      if (isEmpty()) {
-        return null;
-    }
-    int index = (nextAddFirst + 1) % items.length;
-    Item first = items[index];
-    items[index] = null;
-    nextAddFirst = index;
-    size--;
-    return first;
+    return remove(true);
   }
 
   public Item removeLast(){
-      if (isEmpty()) {
-        return null;
-    }
-    int index = (nextAddLast - 1 + items.length) % items.length;
-    Item last = items[index];
-    items[index] = null;
-    nextAddLast = index;
-    size--;
-    return last;
+    return remove(false);
+  }
 
+  public Item remove(isRemoveFirst){
+    if (isEmpty()) {
+      return null;
+    }
+
+    if(isRemoveFirst){
+
+      int index = (nextAddFirst + 1) % items.length;
+    } else{
+
+      int index = (nextAddLast - 1 + items.length) % items.length;
+    }
+
+    Item first = items[index];
+    items[index] = null;
+
+    if(isRemoveFirst){
+      nextAddFirst = index;
+    } else{
+
+      nextAddLast = index;
+    }
+
+    size--;
+    return first;
   }
 
   public Item get(int index) {
